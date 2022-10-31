@@ -15,10 +15,32 @@
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name,
+  this.age = age,
+  this.stomach = []
 }
 
+Person.prototype.eat = function(edible) {
+  this.stomach.push(edible);
+};
+
+Person.prototype.poop = function() {
+  this.stomach = [];
+};
+
+Person.prototype.toString = function() {
+  return `My name is ${this.name}, and I am ${this.age} years old.`
+};
+
+const neo = new Person ('Neo', 20);
+
+console.log ('task 1:', neo);
+console.log ('task 1:', neo.name);
+console.log ('task 1:', neo.age);
+console.log ('task 1:', neo.eat('pizza'));
+console.log ('task 1:', neo.stomach);
+console.log ('task 1:', neo.toString());
 
 /*
   TASK 2
@@ -36,10 +58,16 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model,
+  this.milesPerGallon = milesPerGallon,
+  this.tank = 0,
+  this.odometer = 0
 }
 
+Car.prototype.fill = function(gallons) {
+
+}
 
 /*
   TASK 3
