@@ -66,8 +66,15 @@ function Car(model, milesPerGallon) {
 }
 
 Car.prototype.fill = function(gallons) {
-
+  return this.tank = this.tank + (gallons);
+ 
 }
+
+const corvette = new Car('Corvette', 18);
+
+console.log ('task 2:,', corvette.fill(23));
+console.log ('task 2:,', corvette.tank);
+
 
 /*
   TASK 3
