@@ -84,19 +84,33 @@ console.log ('task 2:,', corvette.tank);
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy
 }
 
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}.`
+}
 
+const jacjac = new Baby('JacJac', 1, 'lasers')
+
+console.log ('task 3:', jacjac);
+console.log ('task 3:', jacjac.name);
+console.log ('task 3:', jacjac.play);
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. WINDOW BINDING is the entire JavaScript running context.
+  2. IMPLICIT BINDING is "assumed" or "implied" because it refers to the immediate location or context of the created variable or function, etc.
+  3. EXPLICIT BINDING is NOT so easy to assume or imply and therefore uses terms like .call() and .bind() to point outside to what I want to run as context.
+  4. NEW BINDING uses the word "new" to indicate the creation of an individual copy of a template. 
 */
+console.log('task 4.1:', `WINDOW BINDING is the entire JavaScript running context.`);
+console.log('task 4.2:', `IMPLICIT BINDING is "assumed" or "implied" because it refers to the immediate location or context of the created variable or function, etc.`);
+console.log('task 4.3:', `EXPLICIT BINDING is NOT so easy to assume or imply and therefore uses terms like .call() and .bind() to point outside to what I want to run as context.`);
+console.log('task 4.4:', `NEW BINDING uses the word "new" to indicate the creation of an individual copy of a template.`);
 
 ///////// END OF CHALLENGE /////////
 
